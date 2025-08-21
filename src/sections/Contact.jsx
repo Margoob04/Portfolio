@@ -28,19 +28,31 @@ const Contact = () => {
     setIsLoading(true);
 
     try {
-      console.log("From submitted:", formData);
+      // console.log("From submitted:", formData);
       await emailjs.send(
-        "service_79b0nyj",
-        "template_17us8im",
+        "service_5yzbywp",
+        "template_5i66wlo",
         {
           from_name: formData.name,
-          to_name: "Ali",
+          to_name: "Margoob",
           from_email: formData.email,
-          to_email: "AliSanatiDev@gmail.com",
+          to_email: "margoobtanweer@gmail.com",
+          message: formData.message,
+          date: new Date().toLocaleString(),
+        },
+        "nH0nfqoCyecemKRb-"
+      );
+      await emailjs.send(
+        "service_5yzbywp",
+        "template_w3v4usb", // your new auto-reply template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
           message: formData.message,
         },
-        "pn-Bw_mS1_QQdofuV"
+        "nH0nfqoCyecemKRb-"
       );
+
       setIsLoading(false);
       setFormData({ name: "", email: "", message: "" });
       showAlertMessage("success", "You message has been sent!");
@@ -51,7 +63,10 @@ const Contact = () => {
     }
   };
   return (
-    <section className="relative flex items-center c-space section-spacing">
+    <section
+      className="relative flex items-center c-space section-spacing"
+      id="contact"
+    >
       <Particles
         className="absolute inset-0 -z-50"
         quantity={100}
@@ -78,7 +93,7 @@ const Contact = () => {
               name="name"
               type="text"
               className="field-input field-input-focus"
-              placeholder="John Doe"
+              placeholder="Name"
               autoComplete="name"
               value={formData.name}
               onChange={handleChange}
@@ -94,7 +109,7 @@ const Contact = () => {
               name="email"
               type="email"
               className="field-input field-input-focus"
-              placeholder="JohnDoe@email.com"
+              placeholder="@email.com"
               autoComplete="email"
               value={formData.email}
               onChange={handleChange}
