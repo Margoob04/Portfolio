@@ -1,0 +1,26 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle with Gradient -->
+  <defs>
+    <radialGradient id="grad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FF512F"/>   <!-- Neon Orange -->
+      <stop offset="100%" stop-color="#DD2476"/> <!-- Neon Purple/Pink -->
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Circle -->
+  <circle cx="60" cy="60" r="55" fill="url(#grad)" stroke="#fff" stroke-width="3"/>
+  
+  <!-- Initials with Glow -->
+  <text x="50%" y="50%" text-anchor="middle" dy=".35em"
+        font-size="42" font-family="Orbitron, Arial, sans-serif"
+        fill="#ffffff" font-weight="bold" filter="url(#glow)">
+    MT
+  </text>
+</svg>
